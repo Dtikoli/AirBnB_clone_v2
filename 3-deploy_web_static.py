@@ -33,15 +33,17 @@ def do_deploy(archive_path):
     try:
         arcfile = archive_path.split("/")[-1]
         fname = arcfile.split(".")[0]
-        fpath = "/data/web_static/releases/{}/".format(fname)
         put(archive_path, '/tmp/')
-        run("mkdir -p {}".format(fpath))
-        run("tar -zxvf /tmp/{} -C {}".format(arcfile, fpath))
+        run("mkdir -p /data/web_static/releases/{}/".format(fname))
+        run("tar -zxvf /tmp/{} -C /data/web_static/releases/{}/"
+            .format(arcfile, fname))
         run("rm /tmp/{}".format(arcfile))
-        run("mv {}/web_static/* {}".format(fpath, fpath))
-        run("rm -rf {}/web_static".format(fpath))
+        run("mv /data/web_static/releases/{}/web_static/* \
+            /data/web_static/releases/{}/".format(fname, fname))
+        run("rm -rf /data/web_static/releases/{}/web_static".format(fname))
         run("rm -rf /data/web_static/current")
-        run("ln -s {} /data/web_static/current".format(fpath))
+        run("ln -s /data/web_static/releases/{} /data/web_static/current"
+            .format(fname))
         return True
     except Exception as err:
         return False
