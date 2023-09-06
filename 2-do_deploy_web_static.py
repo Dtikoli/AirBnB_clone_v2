@@ -26,7 +26,7 @@ def do_deploy(archive_path):
             /data/web_static/releases/{}/".format(fname, fname))
         run("rm -rf /data/web_static/releases/{}/web_static".format(fname))
         run("rm -rf /data/web_static/current")
-        run("ln -s /data/web_static/releases/{} /data/web_static/current"
+        run("ln -s /data/web_static/releases/{}/ /data/web_static/current"
             .format(fname))
         return True
     except Exception as err:
