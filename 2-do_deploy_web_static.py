@@ -18,7 +18,7 @@ def do_deploy(archive_path):
         arcfile = archive_path.split("/")[-1]
         fname = arcfile.split(".")[0]
         put(archive_path, '/tmp/')
-        run("mkdir -p {}".format(fpath))
+        run("mkdir -p /data/web_static/releases/{}/".format(fname))
         run("tar -zxvf /tmp/{} -C /data/web_static/releases/{}/"
             .format(arcfile, fname))
         run("rm /tmp/{}".format(arcfile))
