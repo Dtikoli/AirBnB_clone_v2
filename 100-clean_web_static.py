@@ -22,7 +22,7 @@ def do_clean(number=0):
     archives = sorted(os.listdir("versions"))
     [archives.pop() for i in range(number)]
     with lcd("versions"):
-        [local(f"rm ./{arch}") for arch in archives]
+        [local(f"rm ./{}".format(arch)) for arch in archives]
 
     with cd("/data/web_static/releases"):
         archives = run("ls -tr").split()
