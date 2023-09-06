@@ -22,7 +22,7 @@ def do_deploy(archive_path):
         run("tar -zxvf /tmp/{} -C /data/web_static/releases/{}/"
             .format(arcfile, fname))
         run("rm /tmp/{}".format(arcfile))
-        run("mv /data/web_static/releases/{}/web_static/* \
+        run("mv /data/web_static/releases/{}/web_static/*\
             /data/web_static/releases/{}/".format(fname, fname))
         run("rm -rf /data/web_static/releases/{}/web_static".format(fname))
         run("rm -rf /data/web_static/current")
