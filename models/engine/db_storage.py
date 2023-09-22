@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module for Database storage"""
+""" Module for Database storage """
 from models.base_model import BaseModel, Base
 from models.amenity import Amenity
 from models.city import City
