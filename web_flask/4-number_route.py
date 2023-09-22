@@ -25,15 +25,15 @@ def c_text(text):
     return f"C {text}"
 
 
-@app.route('/python/', strict_slashes=False)
-@app.route('/python/<text>', strict_slashes=False)
-def python_text(text='is cool'):
+@app.route("/python/", strict_slashes=False)
+@app.route("/python/<text>", strict_slashes=False)
+def python_text(text="is cool"):
     """ Function called with route /python/<text> """
     text = text.replace("_", " ")
     return f"Python {text}"
 
 
-@app.route('/number/<int:n>', strict_slashes=False)
+@app.route("/number/<int:n>", strict_slashes=False)
 def number(n):
     """ Function called with route /number/<n> """
     return f"{n} is a number"
