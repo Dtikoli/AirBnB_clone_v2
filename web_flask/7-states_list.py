@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Script that runs an app with Flask framework """
+""" A script that starts a Flask web application """
 from flask import Flask, render_template
 from models import storage
 from models.state import State
@@ -14,14 +14,14 @@ def teardown_session(exception):
     storage.close()
 
 
-@app.route('/states_list', strict_slashes=False)
+@app.route("/states_list", strict_slashes=False)
 def display_html():
-    """ Function called with /states_list route """
+    """ Function called with route /states_list """
     states = storage.all(State)
     dict_to_html = {value.id: value.name for value in states.values()}
-    return render_template('7-states_list.html',
+    return render_template("7-states_list.html",
                            Table="States",
                            items=dict_to_html)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host="0.0.0.0", port=5000)
