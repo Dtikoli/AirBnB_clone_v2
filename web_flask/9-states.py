@@ -30,7 +30,7 @@ def display_html(id=None):
     key = "State.{}".format(id)
     if key in states:
         return render_template("9-states.html",
-                               Table="State: {}".format(states[k].name),
+                               Table="State: {}".format(states[key].name),
                                items=states[key])
 
     return render_template("9-states.html", items=None)
