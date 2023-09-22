@@ -30,11 +30,10 @@ def display_html(id=None):
     key = f"State.{id}"
     if key in states:
         return render_template("9-states.html",
-                               Table=f"State: {}".format(states[k].name}),
+                               Table="State: {}".format(states[k].name),
                                items=states[key])
 
-    return render_template("9-states.html",
-                           items=None)
+    return render_template("9-states.html", items=None)
 
 
 if __name__ == "__main__":
