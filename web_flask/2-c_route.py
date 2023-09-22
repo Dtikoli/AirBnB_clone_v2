@@ -22,7 +22,7 @@ def hbnb():
 def c_text(text):
     """ Function called with route /c/<text> """
     text = text.replace("_", " ")
-    return "C {text}"
+    return f"C {text}"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
