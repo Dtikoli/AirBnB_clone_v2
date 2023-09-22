@@ -27,7 +27,7 @@ def display_html(id=None):
                                Table="States",
                                items=dict_to_html)
 
-    key = f"State.{id}"
+    key = "State.{}".format(id)
     if key in states:
         return render_template("9-states.html",
                                Table="State: {}".format(states[k].name),
