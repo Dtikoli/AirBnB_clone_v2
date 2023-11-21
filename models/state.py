@@ -9,7 +9,7 @@ from os import environ
 
 
 class State(BaseModel, Base):
-    """This is the class for State
+    """Class State
     Attributes:
         name: input name
     """
